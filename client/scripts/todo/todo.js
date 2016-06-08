@@ -1,5 +1,6 @@
 var todo = {
   setup: function(todos){
+    console.log("inside setup");
     todo.app = new todo.App({
       el: '#todo-app',
       items: todos
@@ -14,8 +15,10 @@ var todo = {
     }, function(err, res){
       if (err) { throw err; }
       if (!debug) {
+        // passes just the todos property of the response object (which is an array)
         todo.setup(res.todos);
       } else {
+        // if we're in debug mode, just setup the app with no data
         todo.setup();
       }
     });
