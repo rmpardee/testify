@@ -56,7 +56,7 @@ describe('the todo.util methods', function() {
     var validName = 'Ruth M. Pardee';
     var invalidName = 'R M P';
 
-    it('return a boolean', function() {
+    it('should return a boolean', function() {
       assert.typeOf(todo.util.isValidTodoName(validName), 'boolean');
     });
 
@@ -68,6 +68,16 @@ describe('the todo.util methods', function() {
       expect(todo.util.isValidTodoName(invalidName)).to.equal(false);
     });
     
+  });
+
+  describe('getUniqueId', function() {
+    it('should return a number', function() {
+      assert.typeOf(todo.util.getUniqueId(), 'number');
+    });
+
+    it('should increment the lastId', function() {
+      expect(todo.util.getUniqueId()).to.equal(2);
+    });
   });
 });
 
